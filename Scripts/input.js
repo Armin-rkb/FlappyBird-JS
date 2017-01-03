@@ -13,7 +13,7 @@
 		var keyDown = event.keyCode;
 
 		if (keyDown == jumpKey && canJump){
-			Bird.Jump();
+			Jump();
 			canJump = false;
 		}
 	}
