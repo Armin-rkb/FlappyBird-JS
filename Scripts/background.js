@@ -1,13 +1,17 @@
 var bg_xPos = 0;
 var bg_yPos = 0;
-var bg_Width = 600;
-var bg_Height = 800;
+let bg_Width = 600;
+let bg_Height = 800;
 let bg_scrollSpeed = 0.25;
 
-var	bgImage = new Image();
+let	bgImage = new Image();
 bgImage.src = 'Assets/Background.png';
 
 MoveBackground();
+
+function DrawBackground(ctx){
+	ctx.drawImage(bgImage, bg_xPos, bg_yPos);
+}
 
 function MoveBackground(){
 	let move = setInterval(function(){

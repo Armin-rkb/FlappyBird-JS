@@ -1,13 +1,33 @@
 var bird_xPos = 50;
 var bird_yPos = 0;
-var fallSpeed = 0;
-let	jumpHeight = 0;
-let	jumpApex = 35;
 
-var	birdImage = new Image();
+let fallSpeed = 0;
+let gravity = 6;
+let	jumpHeight = 0;
+let	jumpApex = 30;
+
+let	birdImage = new Image();
 birdImage.src = 'Assets/Bird.png';
 
-function Jump(){
+function DrawBird(ctx){
+	// Drawing the bird.
+	ctx.drawImage(birdImage, bird_xPos, bird_yPos);
+}
+
+
+function UpdateBird(){
+	// Update the new bird position.
+	bird_yPos += gravity * fallSpeed;
+
+	if (fallSpeed < 1){
+		fallSpeed += 0.02;
+	}
+	else if (fallSpeed > 1){
+		fallSpeed = 1;
+	}
+}
+
+function JumpBird(){
 	let flyBird = setInterval(function(){
 			bird_yPos -= jumpHeight;
 			jumpHeight += 5;
@@ -17,6 +37,6 @@ function Jump(){
 				clearInterval(flyBird);
 			}
 	}, 20)
-
-	this.fallSpeed = 0;
+	
+	fallSpeed = 0;
 }

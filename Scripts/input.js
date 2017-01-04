@@ -1,5 +1,6 @@
 	var canJump = true;
 	var jumpKey = 32;
+	
 	// Checking our input up.
 	document.onkeyup = function(event){
 		var keyUp = event.keyCode;
@@ -13,7 +14,7 @@
 		var keyDown = event.keyCode;
 
 		if (keyDown == jumpKey && canJump){
-			Jump();
+			JumpBird();
 			canJump = false;
 		}
 	}
